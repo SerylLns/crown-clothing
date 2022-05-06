@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import {
-  createAuthUserWithEmailAndPassword,
-  createUserDocumentFromAuth,
+  SignInAuthUserWithEmailAndPassword,
 } from "../../services/firebase/firebase.service";
 import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
@@ -24,17 +23,20 @@ const SignInForm = ({ children }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { user } = await createAuthUserWithEmailAndPassword(
+      const { user } = await SignInAuthUserWithEmailAndPassword(
         email,
         password
       );
-      await createUserDocumentFromAuth(user, {});
       resetFields();
     } catch (error) {
-      if (error.code === "auth/email-already-in-use") {
+      errorRef.current.innerHTML = ""
+      if (
+        error.code === "auth/auth/user-not-found" ||
+        error.code === "auth/wrong-password"
+      ) {
         errorRef.current.insertAdjacentHTML(
           "beforeEnd",
-          `<p className="error-sign">Cet email est déjà utilisé</p>`
+          `<p class="error-sign">Mot de passe ou Email incorrect !</p>`
         );
       }
       console.log("user creation error", error);

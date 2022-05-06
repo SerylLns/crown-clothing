@@ -42,10 +42,12 @@ const SignUpForm = () => {
       await createUserDocumentFromAuth(user, { displayName });
       resetFields();
     } catch (error) {
+      errorRef.current.innerHTML = "";
+      console.log(error.code);
       if (error.code === "auth/email-already-in-use") {
         errorRef.current.insertAdjacentHTML(
           "beforeEnd",
-          `<p className="error-sign">Cet email est déjà utilisé</p>`
+          `<p class="error-sign">Cet email est déjà utilisé !</p>`
         );
       }
       console.log("user creation error", error);
@@ -64,7 +66,7 @@ const SignUpForm = () => {
 
   return (
     <div className="sign-up-container">
-      <h2>Vous n'étes pas encore inscrit ?</h2>
+      <h2>Vous n'êtes pas encore inscrit ?</h2>
       <form
         onSubmit={(e) => {
           handleSubmit(e);
@@ -109,12 +111,13 @@ const SignUpForm = () => {
 
         <div className="sign-up-buttons">
           
-          <Button type="submit">S'inscrire</Button>
           <Button
             onClick={SignInWithGoogle}
             buttonType="google"
+            type="button"
             logo={GoogleLogo}
             />
+          <Button type="submit">S'inscrire</Button>
         </div>
       </form>
     </div>

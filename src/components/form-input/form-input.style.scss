@@ -30,10 +30,13 @@ $main-color: black;
     box-shadow: 0px 2px 5px rgba($color: #bbb, $alpha: .5);
     &:focus {
       outline: none;
+      border-bottom: 2px solid #87F5FB;
     }
 
     &:focus~.form-input-label {
       @include shrinkLabel();
+      // color: #87F5FB;
+      color: #87F5FB;
     }
   }
 
@@ -48,7 +51,7 @@ $main-color: black;
     position: absolute;
     pointer-events: none;
     left: 7px;
-    top: 20px;
+    top: 16px;
     transition: 300ms ease all;
 
     &.shrink {

@@ -15,7 +15,7 @@
   cursor: pointer;
   display: flex;
   justify-content: center;
-
+  transition: all .3s ease-in;
   &:hover {
     background-color: white;
     color: black;

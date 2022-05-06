@@ -1,8 +1,9 @@
 .sign-in-container{
+  position: relative;
   display: flex;
   flex-direction: column;
-  // justify-content: space-around;
   width: 40%;
+  min-width: 420px;
   padding: 0px;
   &:hover {
     box-shadow: 1px 1px 5px #000;

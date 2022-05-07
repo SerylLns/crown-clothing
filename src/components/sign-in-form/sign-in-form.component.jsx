@@ -23,7 +23,7 @@ const SignInForm = ({ children }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { user } = await SignInAuthUserWithEmailAndPassword(
+      await SignInAuthUserWithEmailAndPassword(
         email,
         password
       );

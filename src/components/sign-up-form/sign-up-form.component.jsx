@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import {  useRef, useState } from "react";
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
@@ -30,7 +30,7 @@ const SignUpForm = () => {
     if (password !== confirmPassword) {
       errorRef.current.insertAdjacentHTML(
         "beforeEnd",
-        `<p className="error-sign">Les mots de passe ne correspondent pas</p>`
+        `<p class="error-sign">Les mots de passe ne correspondent pas !</p>`
       );
       return;
     }
@@ -60,8 +60,7 @@ const SignUpForm = () => {
   };
 
   const SignInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   };
 
   return (

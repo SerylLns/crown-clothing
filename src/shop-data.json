@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Chapeau de paille",
+    "imageUrl": "https://p2.piqsels.com/preview/708/231/680/farm-field-grain-green.jpg",
+    "price": 25
+  },
+  {
+    "id": 2,
+    "name": "American Dream",
+    "imageUrl": "https://p0.piqsels.com/preview/752/992/945/4th-of-july-american-flag-celebration-clothing.jpg",
+    "price": 18
+  },
+  {
+    "id": 3,
+    "name": "Brown Cowboy",
+    "imageUrl": "https://p0.piqsels.com/preview/915/911/798/women-fashion-boho-hat.jpg",
+    "price": 35
+  },
+  {
+    "id": 4,
+    "name": "Beach blue",
+    "imageUrl": "https://p2.piqsels.com/preview/457/655/615/beach-blue-female-hand.jpg",
+    "price": 25
+  },
+  {
+    "id": 5,
+    "name": "Bonnet de laine",
+    "imageUrl": "https://i.ibb.co/YTjW3vF/green-beanie.png",
+    "price": 18
+  },
+  {
+    "id": 6,
+    "name": "Berret",
+    "imageUrl": "https://p0.piqsels.com/preview/136/259/797/people-guy-man-cap.jpg",
+    "price": 14
+  },
+  {
+    "id": 7,
+    "name": "Casquette NY",
+    "imageUrl": "https://p0.piqsels.com/preview/906/712/990/adult-athlete-baseball-cap-beard.jpg",
+    "price": 18
+  },
+  {
+    "id": 8,
+    "name": "Casquette Nike",
+    "imageUrl": "https://p0.piqsels.com/preview/581/383/578/baseball-cap-beach-blurred-background-cap.jpg",
+    "price": 14
+  },
+  {
+    "id": 9,
+    "name": "Casquette Batman",
+    "imageUrl": "https://p0.piqsels.com/preview/471/191/637/young-boy-batman-hat.jpg",
+    "price": 16
+  }
+]

@@ -14,7 +14,7 @@ const ProductCart = ({ product }) => {
         <span className='name'>{ name }</span>
         <span className='price'>{ price }€</span>
       </div>
-      <Button onClick={() => addItemToCart(product)} buttonType="inverted">Ajouter au panier</Button>
+      <Button onClick={() => addItemToCart(product)} buttonType="inverted">Ajouter</Button>
     </div>
   );
 };

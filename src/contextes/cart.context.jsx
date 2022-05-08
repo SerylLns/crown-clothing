@@ -10,10 +10,12 @@ export const CartContext = createContext({
 });
 
 export const CartProvider = ({ children }) => {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(
+    JSON.parse(localStorage.getItem("cart-items")) || []
+  );
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [itemsCount, setItemsCount] = useState(0);
-  const [totalValue, setTotalValue] = useState(0)
+  const [totalValue, setTotalValue] = useState(0);
   const addItemToCart = (product) => {
     setItems(addCartItem(items, product));
   };
@@ -28,11 +30,18 @@ export const CartProvider = ({ children }) => {
     );
     setItemsCount(newItemsCount);
   }, [items]);
-  
+
   useEffect(() => {
-    const newTotalValue = items.reduce((total, item) => total + (item.price * item.quantity), 0)
-    setTotalValue(newTotalValue)
-  }, [items])
+    const newTotalValue = items.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+    setTotalValue(newTotalValue);
+  }, [items]);
+
+  useEffect(() => {
+    localStorage.setItem("cart-items", JSON.stringify(items));
+  }, [items]);
 
   const value = {
     items,
@@ -66,10 +75,12 @@ const removeItem = (items, product) => {
 };
 
 const removeOneItem = (items, product) => {
-  if (product.quantity === 1) return removeItem(items, product)
-  
+  if (product.quantity === 1) return removeItem(items, product);
+
   const newCartItems = items.map((item) => {
-    return item.id === product.id ? {...item, quantity: item.quantity -1}  :  item
+    return item.id === product.id
+      ? { ...item, quantity: item.quantity - 1 }
+      : item;
   });
   return newCartItems;
 };

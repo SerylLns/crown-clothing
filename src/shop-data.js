@@ -59,7 +59,7 @@ const SHOP_DATA = [
     ],
   },
   {
-    title: "Basket",
+    title: "Baskets",
     items: [
       {
         id: 10,

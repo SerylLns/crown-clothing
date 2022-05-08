@@ -6,8 +6,8 @@ import {
 } from "../../services/firebase/firebase.service";
 import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
-import "./sign-up-form.style.scss";
 import GoogleLogo from '../../assets/google-logo.svg';
+import { SignUpContainer } from "./sign-up-form.style";
 
 const defaultFormField = {
   displayName: "",
@@ -64,7 +64,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="sign-up-container">
+    <SignUpContainer>
       <h2>Vous n'êtes pas encore inscrit ?</h2>
       <form
         onSubmit={(e) => {
@@ -109,17 +109,16 @@ const SignUpForm = () => {
         <div ref={errorRef}></div>
 
         <div className="sign-up-buttons">
-          
           <Button
             onClick={SignInWithGoogle}
             buttonType="google"
             type="button"
             logo={GoogleLogo}
-            />
+          />
           <Button type="submit">S'inscrire</Button>
         </div>
       </form>
-    </div>
+    </SignUpContainer>
   );
 };
 

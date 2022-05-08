@@ -4,7 +4,7 @@ import {
 } from "../../services/firebase/firebase.service";
 import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
-import "./sign-in-form.style.scss";
+import { SignInContainer } from "./sign-in-form.style";
 
 const defaultFormField = {
   email: "",
@@ -49,7 +49,7 @@ const SignInForm = ({ children }) => {
   };
 
   return (
-    <div className="sign-in-container">
+    <SignInContainer>
       <h2>Se connecter</h2>
       <form
         onSubmit={(e) => {
@@ -79,7 +79,7 @@ const SignInForm = ({ children }) => {
         <Button type="submit">S'inscrire</Button>
         
       </form>
-    </div>
+    </SignInContainer>
   );
 };
 

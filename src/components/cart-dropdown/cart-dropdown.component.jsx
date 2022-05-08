@@ -1,24 +1,32 @@
-import "./cart-dropdown.style.scss";
 import React, { useContext } from "react";
 import Button from "../button/button.component";
 import { CartContext } from "../../contextes/cart.context";
-import CartItem from "../cart-item/cart-item.component";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import CartItem from '../cart-item/cart-item.component'
+import {
+  CartDropdownContainer,
+  EmptyMessage,
+  CartItems,
+} from "./cart-dropdown.style";
 
 const CartDropdown = () => {
   const { items } = useContext(CartContext);
   const navigate = useNavigate();
 
   const goToCheckoutHandler = () => {
-    navigate("/checkout")
-  }
+    navigate("/checkout");
+  };
   return (
-    <div className="cart-dropdown-container">
-      <div className="cart-items">
-        {items && items.map((item) => <CartItem key={item.id} item={item} />)}
-      </div>
+    <CartDropdownContainer>
+      <CartItems>
+        {items.length ? (
+          items && items.map((item) => <CartItem key={item.id} item={item} />)
+        ) : (
+          <EmptyMessage>Votre panier est vide !</EmptyMessage>
+        )}
+      </CartItems>
       <Button onClick={goToCheckoutHandler}>Valider mon panier</Button>
-    </div>
+    </CartDropdownContainer>
   );
 };
 
